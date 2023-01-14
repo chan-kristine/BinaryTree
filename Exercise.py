@@ -43,6 +43,18 @@ class BinarySearchTreeNode:
             elements += self.right.pre_order_traversal()
 
         return elements
+ 
+# Implement Post Order Traversal Method   
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.post_order_traversal()
+        if self.right:
+            elements += self.right.post_order_traversal()
+
+        elements.append(self.data)
+
+        return elements
 
 def build_tree(elements):
         root = BinarySearchTreeNode(elements[0])
@@ -57,3 +69,4 @@ if __name__ == '__main__':
     numbers_tree = build_tree(numbers)
     print("In order traversal:", numbers_tree.in_order_traversal())
     print("Pre order traversal:", numbers_tree.pre_order_traversal())
+    print("Pre order traversal:", numbers_tree.post_order_traversal())
