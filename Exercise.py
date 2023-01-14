@@ -92,4 +92,6 @@ if __name__ == '__main__':
     print("In order traversal:", numbers_tree.in_order_traversal())
     print("Pre order traversal:", numbers_tree.pre_order_traversal())
     print("Pre order traversal:", numbers_tree.post_order_traversal())
-    
+ 
+ 
+# Reference: Practice Exercise - https://youtu.be/lFq5mYUWEBk
