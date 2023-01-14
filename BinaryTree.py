@@ -5,7 +5,7 @@ class BinarySearchTreeNode:
         self.right = None
 
 # Data Checking        
-def add_child(self, data):
+    def add_child(self, data):
         if data == self.data:
             return # node already exists
 
@@ -19,3 +19,38 @@ def add_child(self, data):
                 self.right.add_child(data)
             else:
                 self.right = BinarySearchTreeNode(data)
+
+# Implement In Order Traversal Function                
+    def in_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.in_order_traversal()
+
+        elements.append(self.data)
+
+        if self.right:
+            elements += self.right.in_order_traversal()
+
+        return elements
+
+# Implement Build Tree Function
+def build_tree(elements):
+    root = BinarySearchTreeNode(elements[0])
+
+    for i in range(1,len(elements)):
+        root.add_child(elements[i])
+
+    return root
+
+if __name__ == '__main__':
+    letters = ["K", "R", "I", "S", "T", "I", "N", "E", "A", "G", "C", "A", "Y", "C", "H", "A", "N"]
+    letters_tree = build_tree(letters)
+    print('╔═*.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.*═╗')
+    print()
+    print("  Given Letters:",letters)
+    print()
+    print('╚═*.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.*═╝')
+
+    print()
+    print("In order traversal sorted list:",letters_tree.in_order_traversal())
+    
