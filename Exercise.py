@@ -20,7 +20,24 @@ class BinarySearchTreeNode:
                 self.right.add_child(data)
             else:
                 self.right = BinarySearchTreeNode(data)
-                
+
+# Implement Search Function    
+    def search(self, val):
+        if self.data == val:
+            return True
+
+        if val < self.data:
+            if self.left:
+                return self.left.search(val)
+            else:
+                return False
+
+        if val > self.data:
+            if self.right:
+                return self.right.search(val)
+            else:
+                return False
+                        
 # Implement In Order Traversal Method
     def in_order_traversal(self):
         elements = []
@@ -89,6 +106,8 @@ if __name__ == '__main__':
     print("Min:",numbers_tree.find_min())
     print("Max:",numbers_tree.find_max())
     print("Sum:", numbers_tree.calculate_sum())
+    print("Does number 3 exist in the list?", numbers_tree.search(3))
+    print("Does number 17 exist in the list?", numbers_tree.search(17))
     print("In order traversal:", numbers_tree.in_order_traversal())
     print("Pre order traversal:", numbers_tree.pre_order_traversal())
     print("Pre order traversal:", numbers_tree.post_order_traversal())
