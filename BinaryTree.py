@@ -33,6 +33,16 @@ class BinarySearchTreeNode:
 
         return elements
 
+# Implement Pre-Order Traversal Function   
+    def pre_order_traversal(self):
+        elements = [self.data]
+        if self.left:
+            elements += self.left.pre_order_traversal()
+        if self.right:
+            elements += self.right.pre_order_traversal()
+
+        return elements
+
 # Implement Build Tree Function
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
@@ -52,5 +62,7 @@ if __name__ == '__main__':
     print('╚═*.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.**.·:·.✧ ✦ ✧.·:·.*═╝')
 
     print()
-    print("In order traversal sorted list:",letters_tree.in_order_traversal())
+    print("\033[01m[1]\33[0m \033[92mIn Order Traversal sorted list:\33[0m",letters_tree.in_order_traversal())
+    print("\033[01m[2]\33[0m \033[92mPre-Order Traversal sorted list:\33[0m",letters_tree.pre_order_traversal())
+
     
